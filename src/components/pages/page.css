@@ -1,0 +1,319 @@
+.c{
+    max-width: 1850px; 
+    margin: 0 auto;
+    padding: 20px; 
+    background-color: rgba(37,37,38,255); 
+}
+.container2{
+  margin-top: 100px;
+    height: 600px;
+    /* background-color: #e21c1c; */
+}
+.container3{
+  margin-top: 100px;
+    height: 500px;
+    /* background-color: #68ccf1; */
+}
+.container4{
+  height: 400px;
+  /* background-color: #68ccf1; */
+}
+.home-container {
+    padding: 20px;
+}
+
+.main-content {
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.feature-item img {
+    width: 100%;
+    height: auto;
+}
+
+.feature-caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.additional-content {
+    margin-top: 20px;
+}
+
+.albums-row {
+  margin-top: 50px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.album-item {
+    margin: 10px;
+    text-align: center;
+}
+
+.album-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+.slider-container {
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+  }
+  
+  .page-item {
+    flex: 0 0 auto;
+  }
+  
+  h6{
+    padding: 5px;
+    margin-top: 60px;
+    justify-content: center;
+  }
+.d{
+    margin-top: 20px;
+}
+
+.video-link1 {
+  display: block;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  /* Remove max-width and margin-top properties */
+  /* max-width: 100%; */
+  /* margin-top: 20px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-link1 img {
+  width: 100%;
+  height: auto; 
+  display: block;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Play_button_icon.svg') no-repeat center center;
+  background-size: contain;
+  pointer-events: none;
+}
+
+
+
+
+  /* /////////////////////////////////////////////////////// */
+  /* General container styles */
+
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+/* .card:hover .overlay {
+  opacity: 1;
+} */
+
+.overlay-content {
+  text-align: center;
+}
+
+.prev-btn, .next-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.additional-content {
+  margin-top: 20px;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.card:hover .overlay {
+  opacity: 1;
+}
+.card1{
+  position: relative;
+  height: 500px;
+}
+.card img{
+height: 100%;
+  object-fit: cover;
+}
+
+
+.overlay-content {
+  color: white;
+  text-align: center;
+}
+
+
+
+.small-card1 {
+  width: 450px; 
+  height: 300px; 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.small-card2 {
+  width: 370px; 
+  height: 350px; 
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+
+.small-card2 img {
+  width: 100%; /* Take the full width of the container */
+  height: 100%; /* Maintain aspect ratio */
+  display: block; /* Ensure block-level display */
+  object-fit: cover; /* Cover the entire container maintaining aspect ratio */
+  border-radius: 15px; /* Apply border radius */
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.left-arrow {
+  color: aliceblue;
+  margin-top: -60px;
+position: absolute;
+font-size: 40px;
+  left: 60px;
+}
+
+.right-arrow {
+font-size: 40px;
+
+  margin-top: -60px;
+  color: aliceblue;
+
+
+  right: 60px;
+}
+
+
+/* .small-card .overlay {
+  border-radius: 15px;
+  transition: background 0.3s;
+}
+
+.small-card .card:hover .overlay {
+  background: rgba(0, 0, 0, 0.7);
+} */
+
+
+
+.next-btn{
+  position: absolute;
+  z-index: 567px;
+  margin-top: -180px;
+  margin-left: 1730px;
+}
+.prev-btn{
+  position: absolute;
+  z-index: 567px;
+  margin-top: -180px;
+  margin-left: 20px;
+}
+
+.container4 .slider-container {
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+/* ================================= */
+.small-card11 {
+  position: relative;
+  margin: 10px;
+  height: 150px;
+  width: 250px; 
+  background-color: rgba(37,37,38,255);
+  overflow: hidden;
+  border-radius: 10px; /* Optional for rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional for shadow effect */
+  transition: transform 0.3s, box-shadow 0.3s; /* Optional for smooth hover effects */
+}
+
+.small-card11 .card-body {
+  padding: 0;
+}
+
+.small-card11 .img-fluid {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* Optional for rounded corners */
+
+  object-fit: cover;
+  display: block;
+  margin: 0; /* Add this to remove any margins */
+}
+
+.small-card11 .play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background: url('https://upload.wikimedia.org/wikipedia/commons/e/e7/Play_button_icon.svg') no-repeat center center;
+  background-size: contain;
+  opacity: 0.8;
+}
+

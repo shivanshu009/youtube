@@ -1,0 +1,32 @@
+.page-container {
+  max-width: 1850px; 
+  margin: 0 auto;
+  padding: 20px; 
+  background-color: rgba(37,37,38,255); 
+}
+
+.nav-link-custom {
+  margin: 0 40px; /* Adjust the value as needed for the desired gap */
+}
+/* Footer custom styles */
+footer .list-unstyled li a {
+  text-decoration: none;
+  color: #ffffff;
+}
+.headimg{
+  height: 60px;
+  width: auto;
+}
+
+footer .list-unstyled li a:hover {
+  text-decoration: underline;
+}
+
+footer .list-unstyled.d-flex li {
+  margin-right: 15px;
+}
+
+footer .list-unstyled.d-flex li a {
+  font-size: 1.5rem;
+}
+
