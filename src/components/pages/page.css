@@ -3,10 +3,16 @@
     margin: 0 auto;
     padding: 20px; 
     background-color: rgba(37,37,38,255); 
+    
+}
+.container1{
+  margin-top: 100px;
+    height: 100px;
+    background-color: #e21c1c;
 }
 .container2{
   margin-top: 100px;
-    height: 600px;
+    height: 1000px;
     /* background-color: #e21c1c; */
 }
 .container3{
@@ -52,35 +58,72 @@
 
 .albums-row {
   margin-top: 50px;
-
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
 }
 
 .album-item {
-    margin: 10px;
-    text-align: center;
+  margin: 5px; /* Reduced margin */
+  text-align: center;
+  flex: 1 0 150px; /* Base size */
+  max-width: 150px; /* Ensure the max width */
 }
 
 .album-item img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
 }
+
+
+/* Media queries for different screen sizes */
+
+/* For large screens (desktops and laptops) */
+@media (min-width: 1200px) {
+  .album-item {
+    flex: 1 0 180px;
+    max-width: 180px;
+  }
+}
+
+/* For medium screens (tablets) */
+@media (min-width: 768px)  {
+  .album-item {
+    flex: 1 0 140px;
+    max-width: 140px;
+  }
+}
+
+/* For small screens (phones) */
+@media (max-width: 767px) {
+  .album-item {
+    flex: 1 0 120px;
+    max-width: 120px;
+  }
+}
+
 
 
 
 .slider-container {
-    overflow: hidden;
-  }
-  
-  .slider {
-    display: flex;
-  }
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider {
+  width: 800px;
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
   
   .page-item {
     flex: 0 0 auto;
+  }
+  i{
+    margin-top: -100px;
   }
   
   h6{
@@ -88,18 +131,14 @@
     margin-top: 60px;
     justify-content: center;
   }
-.d{
-    margin-top: 20px;
-}
+
 
 .video-link1 {
   display: block;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  /* Remove max-width and margin-top properties */
-  /* max-width: 100%; */
-  /* margin-top: 20px; */
+  
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -178,12 +217,18 @@
 .card:hover .overlay {
   opacity: 1;
 }
-.card1{
+.card1 {
   position: relative;
-  height: 500px;
+  width: 100%;
+ height: 350px;
+  overflow: hidden;
 }
-.card img{
-height: 100%;
+
+.card1 img {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 350px;
   object-fit: cover;
 }
 
@@ -195,17 +240,26 @@ height: 100%;
 
 
 
-.small-card1 {
+.small-card121 {
   width: 450px; 
   height: 300px; 
+  margin: 15px;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
 }
+.small-card121 img {
+  width: 100%; /* Take the full width of the container */
+  height: 100%; 
+  display: block; /* Ensure block-level display */
+  object-fit: cover; 
+  border-radius: 15px; /* Apply border radius */
+}
 .small-card2 {
-  width: 370px; 
-  height: 350px; 
+  width: 342px; 
+margin: 10px;
+  height: 300px; 
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -215,8 +269,8 @@ height: 100%;
 
 
 .small-card2 img {
-  width: 100%; /* Take the full width of the container */
-  height: 100%; /* Maintain aspect ratio */
+  width: 100%; 
+  height: 300px; 
   display: block; /* Ensure block-level display */
   object-fit: cover; /* Cover the entire container maintaining aspect ratio */
   border-radius: 15px; /* Apply border radius */
@@ -241,37 +295,64 @@ font-size: 40px;
 
 .right-arrow {
 font-size: 40px;
-
   margin-top: -60px;
   color: aliceblue;
-
-
   right: 60px;
 }
 
 
-/* .small-card .overlay {
-  border-radius: 15px;
-  transition: background 0.3s;
+
+
+.nav-buttons {
+  position: relative;
+  margin-top: 20px;
 }
 
-.small-card .card:hover .overlay {
-  background: rgba(0, 0, 0, 0.7);
-} */
-
-
-
-.next-btn{
-  position: absolute;
-  z-index: 567px;
-  margin-top: -180px;
-  margin-left: 1730px;
+.prev-btn, .next-btn {
+  margin: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }
-.prev-btn{
+
+.prev-btn {
   position: absolute;
-  z-index: 567px;
-  margin-top: -180px;
-  margin-left: 20px;
+  left: 10px;
+  top: -190px;
+  transform: translateY(-50%);
+}
+
+.next-btn {
+  position: absolute;
+  right: 10px;
+  top: -190px;
+  transform: translateY(-50%);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .arrow {
+    font-size: 1.5rem;
+    padding: 8px;
+  }
+
+  .prev-btn, .next-btn {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .arrow {
+    font-size: 1.2rem;
+    padding: 6px;
+  }
+
+  .prev-btn, .next-btn {
+    padding: 5px 8px;
+  }
 }
 
 .container4 .slider-container {
@@ -317,3 +398,47 @@ font-size: 40px;
   opacity: 0.8;
 }
 
+/* ===========================slider */
+@media (max-width: 1400px) {
+ 
+  
+}
+@media (max-width: 996px) {
+  .card1 {
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .card1 {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .card1 {
+    width: 100%;
+  }
+ 
+}
+@media (max-width: 400px) {
+  .card1 {
+    width: 100%;
+  }
+ 
+}
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.play-button {
+   margin-top: 2px;
+  font-size: 3rem;
+  color: rgb(195, 13, 13);
+  display: none;
+}
+
+.card:hover .play-button {
+  display: block;
+}

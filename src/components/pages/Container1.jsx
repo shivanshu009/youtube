@@ -1,117 +1,149 @@
-import React, { useState } from 'react'
-import './Contact.css'; 
-
+import React, { useState } from 'react';
+import './Contact.css';
+import Modal from './Modal';
 
 const smallImages = [
-    {
-        url: 'https://is1-ssl.mzstatic.com/image/thumb/Features/v4/51/ac/86/51ac8627-7a61-4f51-a055-dde1e424d617/source/600x344sr.webp',
-      
-      title: 'Album 1',
-      description: 'Description 1',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-  
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features/v4/51/ac/86/51ac8627-7a61-4f51-a055-dde1e424d617/source/600x344sr.webp',
-      title: 'Album 2',
-      description: 'Description 2',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/ec/cf/d7/eccfd76f-d043-0ba7-a181-cb1f468ef1a9/6ac45cc9-6322-4ccc-b9b0-03e732ef83a5.png/600x344sr.webp',
-      title: 'Album 3',
-      description: 'Description 3',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features211/v4/e6/cb/46/e6cb467a-c557-3f19-7701-0597d55c5d08/a4b93c96-c77a-4d49-bfb5-dc9efd18c8c3.png/600x344sr.webp',
-      title: 'Album 1',
-      description: 'Description 1',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features/v4/51/ac/86/51ac8627-7a61-4f51-a055-dde1e424d617/source/600x344sr.webp',
-      title: 'Album 2',
-      description: 'Description 2',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/ec/cf/d7/eccfd76f-d043-0ba7-a181-cb1f468ef1a9/6ac45cc9-6322-4ccc-b9b0-03e732ef83a5.png/600x344sr.webp',
-      title: 'Album 3',
-      description: 'Description 3',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features211/v4/e6/cb/46/e6cb467a-c557-3f19-7701-0597d55c5d08/a4b93c96-c77a-4d49-bfb5-dc9efd18c8c3.png/600x344sr.webp',
-      title: 'Album 1',
-      description: 'Description 1',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features/v4/51/ac/86/51ac8627-7a61-4f51-a055-dde1e424d617/source/600x344sr.webp',
-      title: 'Album 2',
-      description: 'Description 2',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    },
-    {
-      url: 'https://is1-ssl.mzstatic.com/image/thumb/Features221/v4/ec/cf/d7/eccfd76f-d043-0ba7-a181-cb1f468ef1a9/6ac45cc9-6322-4ccc-b9b0-03e732ef83a5.png/600x344sr.webp',
-      title: 'Album 3',
-      description: 'Description 3',
-      link: 'https://youtu.be/rS3vW3uAXUQ?feature=shared'
-    }
-  ];
+  {
+    url: 'https://i.ytimg.com/vi/1G0tpiX8uF0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDDmCbzMV-0wGuxypgvkhDFIJ02JQ',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'hYiDSPB1hlI'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/NwDsgqIFJZ4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBoQpnqeLOJGo8GL2d-S0OfRLBcXw',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'NwDsgqIFJZ4'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/H0uL9-8nUCk/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCq8mMrqecTFBaRxglvlpvUaWuXJw',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'H0uL9-8nUCk'
+  },
+ 
+  {
+    url: 'https://i.ytimg.com/vi/CU1tFtk_NFY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1p04dXHwrbfEPskqKcXq4iBhSmA',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'CU1tFtk_NFY'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/TQR70KKYMmQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAjuYpSHfMqgtDerVVmr6ldUCN-lQ',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'TQR70KKYMmQ'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/_VOXxKDNCuM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBAGvissvmMSEeDks7LTFrv1nas3A',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: '_VOXxKDNCuM'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/DMCnscq4yHw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAo7mhdYSDorAg39qFhuXiQE-ij2Q',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'DMCnscq4yHw'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/6cKErCWrb44/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDs19eOVG2fYnfoW63lQ--tsNUsNg',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: '6cKErCWrb44'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/inEu2qQuGZ8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCR5aYXlaCi5G3YeFkfeWLiFdTpEQ',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'inEu2qQuGZ8'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/qWnzMwT6SKo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCUhgNbnfYGHYDs1sKF7qK7ZBlEzg',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'qWnzMwT6SKo'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/0Fegb4Ew8SM/hqdefault.jpg?sqp=-oaymwE2CPYBEIoBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDEoczAP&rs=AOn4CLAPhfDmGfkcWSSfuo5dLpNC3z55sg',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: '0Fegb4Ew8SM'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/Zu61PQyvLf8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjqT2U6TrjEQekkhXM0yh3vYAMuQ',
+    title: 'Album 1',
+    description: 'Description 1',
+    videoId: 'Zu61PQyvLf8'
+  },
 
-
+];
 
 const Container1 = () => {
-    const [showPrevButton, setShowPrevButton] = useState(false);
-const [container4Index, setContainer4Index] = useState(0);
+  const [showPrevButton, setShowPrevButton] = useState(false);
+  const [container4Index, setContainer4Index] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState('');
 
-const goToNextContainer4Card = () => {
+  const goToNextContainer4Card = () => {
     setContainer4Index((prevIndex) => (prevIndex === smallImages.length - 1 ? 0 : prevIndex + 1));
     setShowPrevButton(true); // Show the previous button when navigating
   };
 
-  // Function to navigate to the next card in Container4
   const goToPrevContainer4Card = () => {
     setContainer4Index((prevIndex) => (prevIndex === 0 ? smallImages.length - 1 : prevIndex - 1));
     setShowPrevButton(true); // Show the previous button when navigating
   };
+
+  const openModal = (videoId) => {
+    setCurrentVideoUrl(`https://www.youtube.com/embed/${videoId}?autoplay=1`);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentVideoUrl('');
+  };
+  const visibleCards = 3; // Number of cards visible at a time
+  const totalCards = smallImages.length;
+
   return (
-    <div className="container4">
-    <div className="row">
-      <div className="col-md-12">
-        <h1 className='mb-4'>Today's hit</h1>
-        <div className="slider-container">
-          <i className="arrow left-arrow" onClick={goToPrevContainer4Card}></i>
-          <div className="slider" style={{ transform: `translateX(-${container4Index * 100}%)`, transition: 'transform 0.5s ease-in-out' }}>
-            {smallImages.map((item, index) => (
-              <div key={index} className="page-item small-card2">
-                <a href={item.link} target="_blank" rel="noopener noreferrer">
+    <div className="container c contact my-5">
+      <div className="row">
+        <div className="col-md-12">
+          <h1 className='mb-4'>Today's hit</h1>
+          <div className="slider-container">
+            <i className="arrow left-arrow" onClick={goToPrevContainer4Card}></i>
+            <div className="slider " style={{ transform: `translateX(-${container4Index * (100 / visibleCards)}%)` }}>
+              {smallImages.map((item, index) => (
+                <div key={index} className="page-item small-card2 col-12 col-md-4" onClick={() => openModal(item.videoId)}>
                   <div className="card small-card21">
                     <img src={item.url} alt={`Small Card ${index + 1}`} />
                     <div className="overlay">
                       <div className="overlay-content">
-                        <h1>{item.title}</h1>
-                        <p>{item.description}</p>
+                        {/* <h1>{item.title}</h1> */}
+
+                      <i className="fas fa-play-circle play-button"></i>
+
+                        {/* <p>{item.description}</p> */}
                       </div>
                     </div>
                   </div>
-                </a>
-              </div>
-            ))}
-          </div>
-          <div className="nav-buttons">
-            {showPrevButton && (
-              <i onClick={goToPrevContainer4Card} className="fas prev fa-chevron-left"></i>
-            )}
-            <i  onClick={goToNextContainer4Card} className="fas next fa-chevron-right"></i>
+                </div>
+              ))}
+            </div>
+            <div className="nav-buttons">
+              {showPrevButton && (
+                <i onClick={goToPrevContainer4Card} className="fas prevc2 fa-chevron-left"></i>
+              )}
+              <i onClick={goToNextContainer4Card} className="fas nextc2 fa-chevron-right"></i>
+            </div>
           </div>
         </div>
       </div>
+      <Modal show={showModal} onClose={closeModal} videoUrl={currentVideoUrl} />
     </div>
-  </div>
-  )
+  );
 }
 
-export default Container1
+export default Container1;

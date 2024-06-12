@@ -8,9 +8,9 @@ import Footer from '../includes/Footer';
 
 const Contact = () => {
   return (
-    <Container className="container c mt-5">
-      <Row>
-        <Col md={6}>
+    <Container className="mt-3 c">
+      <Row className="justify-content-center">
+        <Col md={6} className="mb-4">
           <h2>Contact Us</h2>
           <p><FontAwesomeIcon icon={faMapMarkerAlt} /> 1234 Street Name, City, State, 12345</p>
           <p><FontAwesomeIcon icon={faPhone} /> (123) 456-7890</p>
@@ -29,7 +29,12 @@ const Contact = () => {
               <FontAwesomeIcon icon={faYoutube} size="2x" />
             </a>
           </div>
+          <hr />
+          <h3>Additional Information</h3>
+          <p>We welcome your feedback and suggestions!</p>
+          <p>Connect with us to stay updated on our latest news and events.</p>
         </Col>
+
         <Col md={6}>
           <h2>Send Us a Message</h2>
           <Form>
@@ -55,7 +60,7 @@ const Contact = () => {
           </Form>
         </Col>
       </Row>
-      <Footer/>
+      <Footer />
     </Container>
   );
 };

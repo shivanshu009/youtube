@@ -2,31 +2,93 @@
   max-width: 1850px; 
   margin: 0 auto;
   padding: 20px; 
-  background-color: rgba(37,37,38,255); 
+  background-color: rgba(37, 37, 38, 255); 
+}
+
+.brand-style {
+  color: white; 
+  font-family: 'Tahoma';
+  font-weight: bold; 
+  font-size: 24px;
 }
 
 .nav-link-custom {
   margin: 0 40px; /* Adjust the value as needed for the desired gap */
 }
-/* Footer custom styles */
-footer .list-unstyled li a {
-  text-decoration: none;
-  color: #ffffff;
-}
-.headimg{
+
+.headimg {
   height: 60px;
   width: auto;
 }
 
-footer .list-unstyled li a:hover {
-  text-decoration: underline;
+@media (max-width: 600px) {
+  .nav-links-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-link-custom {
+    margin: 10px 0; /* Adjust margin for smaller screens */
+  }
+
+  .headimg {
+    margin: 10px 0;
+    height: 40px; /* Adjust size for smaller screens */
+  }
+}
+.menu{
+  color: white;
+  background-color: aliceblue;
 }
 
-footer .list-unstyled.d-flex li {
-  margin-right: 15px;
+/* ====================footer */
+/* Footer Container */
+.footer {
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
+  padding: 60px 0; /* Adjust top and bottom padding */
 }
 
-footer .list-unstyled.d-flex li a {
-  font-size: 1.5rem;
+/* Footer Sections */
+.footer-section {
+  margin-bottom: 30px; /* Add some space between sections */
 }
 
+.footer-section h5 {
+  font-size: 18px; /* Adjust heading font size */
+  margin-bottom: 20px; /* Add space below headings */
+}
+
+.footer-section ul {
+  padding-left: 0; /* Remove default padding from lists */
+  list-style: none; /* Remove list bullets */
+}
+
+.footer-section li {
+  margin-bottom: 10px; /* Add space between list items */
+}
+
+/* Social Icons */
+.social-icons li {
+  display: inline-block; /* Display icons horizontally */
+  margin-right: 15px; /* Add space between icons */
+}
+
+.social-icons a {
+  color: #fff; /* White icon color */
+  font-size: 20px; /* Adjust icon size */
+}
+
+/* Contact Information */
+.contact-info {
+  margin-top: 20px; /* Add space above contact information */
+}
+
+.contact-info .fa {
+  margin-right: 10px; /* Add space between icon and text */
+}
+
+/* Copyright Text */
+.copyright-text {
+  font-size: 14px; /* Adjust font size */
+}

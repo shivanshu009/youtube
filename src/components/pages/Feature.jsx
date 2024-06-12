@@ -1,83 +1,127 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Modal from './Modal'; // Import the Modal component
+import './Contact.css'; // Assuming you have CSS styles for your slider
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from '../includes/Footer';
 
+
+const featuredVideos = [
+  {
+    url: 'https://i.ytimg.com/vi/inEu2qQuGZ8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCR5aYXlaCi5G3YeFkfeWLiFdTpEQ',
+    title: 'Top Hits 2024',
+    description: 'Enjoy the top hits of 2024!',
+    videoId: 'inEu2qQuGZ8'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/qWnzMwT6SKo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCUhgNbnfYGHYDs1sKF7qK7ZBlEzg',
+    title: 'Chill Vibes',
+    description: 'Relax with these chill tunes.',
+    videoId: 'qWnzMwT6SKo'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/0Fegb4Ew8SM/hqdefault.jpg?sqp=-oaymwE2CPYBEIoBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARh_IDEoczAP&rs=AOn4CLAPhfDmGfkcWSSfuo5dLpNC3z55sg',
+    title: 'Workout Mix',
+    description: 'Get pumped with this workout mix.',
+    videoId: '0Fegb4Ew8SM'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/Zu61PQyvLf8/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDjqT2U6TrjEQekkhXM0yh3vYAMuQ',
+    title: 'Party Playlist',
+    description: 'Party all night with this playlist.',
+    videoId: 'Zu61PQyvLf8'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/1G0tpiX8uF0/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDDmCbzMV-0wGuxypgvkhDFIJ02JQ',
+    title: 'Acoustic Sessions',
+    description: 'Unplug and enjoy these acoustic sessions.',
+    videoId: 'hYiDSPB1hlI'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/NwDsgqIFJZ4/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBoQpnqeLOJGo8GL2d-S0OfRLBcXw',
+    title: 'Hip-Hop Hits',
+    description: 'The best hip-hop hits of the year.',
+    videoId: 'NwDsgqIFJZ4'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/H0uL9-8nUCk/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCq8mMrqecTFBaRxglvlpvUaWuXJw',
+    title: 'Classic Rock',
+    description: 'Timeless classic rock anthems.',
+    videoId: 'H0uL9-8nUCk'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/CU1tFtk_NFY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC1p04dXHwrbfEPskqKcXq4iBhSmA',
+    title: 'Jazz Essentials',
+    description: 'Essential jazz tracks for any collection.',
+    videoId: 'CU1tFtk_NFY'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/TQR70KKYMmQ/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAjuYpSHfMqgtDerVVmr6ldUCN-lQ',
+    title: 'Pop Perfection',
+    description: 'The biggest pop hits.',
+    videoId: 'TQR70KKYMmQ'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/_VOXxKDNCuM/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBAGvissvmMSEeDks7LTFrv1nas3A',
+    title: 'Indie Hits',
+    description: 'Discover the best indie hits.',
+    videoId: '_VOXxKDNCuM'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/DMCnscq4yHw/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAo7mhdYSDorAg39qFhuXiQE-ij2Q',
+    title: 'Reggae Rhythms',
+    description: 'Chill out with reggae rhythms.',
+    videoId: 'DMCnscq4yHw'
+  },
+  {
+    url: 'https://i.ytimg.com/vi/6cKErCWrb44/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDs19eOVG2fYnfoW63lQ--tsNUsNg',
+    title: 'Electronic Essentials',
+    description: 'Essential electronic tracks.',
+    videoId: '6cKErCWrb44'
+  },
+  // Add more videos as needed...
+];
+
+
+
 const Feature = () => {
-  const featuredItems = [
-    {
-      url: '',
-      title: 'Featured 1',
-      description: 'Description for featured item 1',
-      link: 'https://example.com/feature1'
-    },
-    {
-      url: 'https://example.com/feature2.jpg',
-      title: 'Featured 2',
-      description: 'Description for featured item 2',
-      link: 'https://example.com/feature2'
-    },
-    {
-      url: 'https://example.com/feature3.jpg',
-      title: 'Featured 3',
-      description: 'Description for featured item 3',
-      link: 'https://example.com/feature3'
-    },
-    {
-      url: 'https://example.com/feature4.jpg',
-      title: 'Featured 4',
-      description: 'Description for featured item 4',
-      link: 'https://example.com/feature4'
-    },
-    {
-      url: 'https://example.com/feature5.jpg',
-      title: 'Featured 5',
-      description: 'Description for featured item 5',
-      link: 'https://example.com/feature5'
-    }
-  ];
+  const [showModal, setShowModal] = useState(false);
+  const [currentVideoUrl, setCurrentVideoUrl] = useState('');
+
+  const openModal = (videoId) => {
+    setCurrentVideoUrl(`https://www.youtube.com/embed/${videoId}?autoplay=1`);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setCurrentVideoUrl('');
+  };
 
   return (
-    <div className="container c feature-container" style={{ marginTop: '50px' }}>
+    <div className="container c">
+      <h1 className="text-center mt-5 mb-4">Featured Videos</h1>
       <div className="row">
-        <div className="col-md-12">
-          <h1 className="feature-title" style={{ marginBottom: '30px', textAlign: 'center', fontSize: '2rem', color: '#333' }}>Featured Content</h1>
-          <div className="row">
-            {featuredItems.map((item, index) => (
-              <div key={index} className="col-md-4">
-                <div className="card feature-card shadow-sm" style={{ marginBottom: '30px', borderRadius: '10px', border: '1px solid #ccc' }}>
-                  <img src={item.url} className="card-img-top" alt={`Featured ${index + 1}`} style={{ borderTopLeftRadius: '10px', borderTopRightRadius: '10px' }} />
-                  <div className="card-body" style={{ textAlign: 'center' }}>
-                    <h5 className="card-title">{item.title}</h5>
-                    <p className="card-text">{item.description}</p>
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ textDecoration: 'none', color: '#fff', backgroundColor: '#007bff', borderColor: '#007bff', borderRadius: '5px', padding: '8px 20px', fontSize: '1rem' }}>Learn More</a>
-                  </div>
-                </div>
+        {featuredVideos.map((video, index) => (
+          <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div className="card" onClick={() => openModal(video.videoId)}>
+              <img src={video.url} className="card-img-top" alt={video.title} />
+              <div className="card-body">
+                <h5 className="card-title font-weight-bold" style={{ fontFamily: 'Roboto, sans-serif', color: '#353232'}}>{video.title}</h5>
+                <p className="card-text card-description">{video.description}</p>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-        <div className="col-md-12">
-          <h2 className="feature-subtitle" style={{ marginBottom: '20px', fontSize: '1.5rem', color: '#666' }}>What's New?</h2>
-          <ul className="list-unstyled">
-            <li><i className="fas fa-globe"></i> &nbsp; New Features & Updates</li>
-            <li><i className="fas fa-lock"></i> &nbsp; Enhanced Security Measures</li>
-            <li><i className="fas fa-users"></i> &nbsp; New User Interface</li>
-          </ul>
-        </div>
-        <div className="col-md-12">
-          <h2 className="feature-subtitle" style={{ marginBottom: '20px', fontSize: '1.5rem', color: '#666' }}>Our Team</h2>
-          <div className="row">
-            {featuredItems.map((item, index) => (
-              <div key={index} className="col-md-3">
-                <img src={item.url} className="rounded-circle" alt={`Team Member ${index + 1}`} style={{ width: '100px', height: '100px', margin: '20px auto' }} />
-                <p>{item.title}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
-      <Footer/>
+
+      {/* Modal */}
+      {showModal && (
+        <Modal show={showModal} onClose={closeModal} videoUrl={currentVideoUrl} />
+      )}
+  <Footer/>
+
     </div>
+    
   );
 };
 
