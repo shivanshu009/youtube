@@ -114,6 +114,8 @@
 }
 
 .slider {
+  cursor: pointer;
+
   width: 800px;
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -241,6 +243,8 @@
 
 
 .small-card121 {
+  cursor: pointer;
+
   width: 450px; 
   height: 300px; 
   margin: 15px;
@@ -257,6 +261,8 @@
   border-radius: 15px; /* Apply border radius */
 }
 .small-card2 {
+  cursor: pointer;
+
   width: 342px; 
 margin: 10px;
   height: 300px; 
